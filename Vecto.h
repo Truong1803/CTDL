@@ -12,9 +12,11 @@ public:
 };
 template <typename T>
 class Vector{
-public:
+private:
     Node<T>  *head;
     Node<T>  *tail;
+public:
+    
     Vector(){
         this->head=NULL;
         this->tail=NULL;
@@ -120,6 +122,14 @@ public:
             tail=p;
             p->next=NULL;
         }
-
+    }
+    T &operator [](T i){
+        Node<T> *p=head;
+        int k=0;
+        while(k!=i){
+            p=p->next;
+            k++;
+        }
+        return p->data;
     }
 };
